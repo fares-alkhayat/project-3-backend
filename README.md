@@ -11,7 +11,7 @@ rm README.md
 
 3. Create a .env file with the following values:
 ```
-MONGODB_URI=your-connection-string
+MONGODB_URI=mongodb://localhost:27017
 PORT=3000
 CLIENT_URL=http://localhost:5173
 JWT_SECRET=super-secret-key-no-one-would-guess
