@@ -28,13 +28,3 @@ npm i
 ```bash
 npm run dev
 ```
-
-
-
-## Optional
-
-3. Create a .env.test file with the following values:
-```
-MONGODB_URI=your-connection-string
-```
-**IMPORTANT**: DO NOT USE THE SAME DATABASE AS IN YOUR `.env` file. Add `-test` to the end of the database name
