@@ -7,8 +7,8 @@ router.get('/restaurant/:restaurantID/review/', reviewController.getAllReviews)
 
 router.get('/restaurant/:restaurantID/review/:reviewID', reviewController.getOneReview)
 
-router.post('/restaurant/:restaurantID/review/:reviewID', verifyToken, reviewController.createReview)
+router.post('/restaurant/:restaurantID/review/:reviewID', isRestaurant, verifyToken, reviewController.createReview)
 
-router.delete('/restaurant/:restaurantID/review/:reviewID', verifyToken, reviewController.deleteReview)
+router.delete('/restaurant/:restaurantID/review/:reviewID', isRestaurant, verifyToken, reviewController.deleteReview)
 
 module.exports = router;
