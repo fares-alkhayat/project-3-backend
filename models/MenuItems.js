@@ -21,9 +21,9 @@ const menuItemsSchema = new mongoose.Schema(
             min: 0.1,
             max: 50,
         },
-        resturant: {
+        restaurant: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Resturant'
+            ref: 'Restaurant'
         }
     },
     { timestamps: true },
