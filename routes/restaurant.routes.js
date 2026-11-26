@@ -12,6 +12,8 @@ router.get('/:restaurantID/review/:reviewID', reviewController.getOneReview)
 
 router.post('/:restaurantID/review/', isRestaurant, verifyToken, reviewController.createReview)
 
+router.put('/:restaurantID/review/:reviewID', isRestaurant, verifyToken, reviewController.editReview)
+
 router.delete('/:restaurantID/review/:reviewID', isRestaurant, verifyToken, reviewController.deleteReview)
 
 router.post('/', verifyToken, restaurantController.createRestaurant)
