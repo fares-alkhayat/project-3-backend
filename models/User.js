@@ -20,7 +20,12 @@ const userSchema = new mongoose.Schema(
     },
     isDeleted: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
+    },
+    restaurantApproved: {
+      type: Boolean,
+      default: false
     }
   },
   { timestamps: true },
