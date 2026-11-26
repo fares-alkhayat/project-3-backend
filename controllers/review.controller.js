@@ -23,4 +23,34 @@ async function getOneReview(req,res)
     }
 }
 
-module.exports = {}
+async function createReview(req,res)
+{ try {
+    const createdReview = await Review.create({
+        text: req.body.text,
+        rating: req.body,rating,
+        restaurant: req.restaurant._id,
+        user: req.user._id}
+    )
+    console.log(req.user._id)
+    res.status(204).json(createdReview)
+} catch {
+    res.status(400).json({message: "Review cannot be created."})
+}
+}
+
+async function deleteReview(req,res)
+{ try {
+    const foundReview = await Review.find(req.params._id)
+    if(foundReview.user._id == req.user._id){
+    const deletedReview = await Review.findByIdAndDelete(req.params.reviewId)
+    console.log(req.user._id)
+    res.sendStatus(204)}}
+    catch (err){
+    console.log(err)
+    res.status(403).json({message: "You cannot perform this action."})}}
+
+module.exports = {
+    getAllReviews,
+    getOneReview,
+    createReview,
+    deleteReview}

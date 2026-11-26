@@ -8,7 +8,7 @@ router.post("/sign-up", authController.signUp);
 
 router.post("/sign-in", authController.signIn);
 
-router.get("/admin-panel", isAdmin, authController.adminPage);
+// router.get("/admin-panel", isAdmin, authController.adminPage);
 
 router.get("/me", verifyToken, authController.verifyUser);
 
