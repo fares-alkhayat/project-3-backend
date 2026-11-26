@@ -38,6 +38,23 @@ async function createReview(req,res)
 }
 }
 
+async function editReview(req,res){
+    try {
+    const foundReview = await Review.find(req.params._id)
+    if(foundReview.user._id == req.user._id){
+    const updated = await Review.findByIdAndUpdate({
+        text: req.body.text,
+        rating: req.body,rating,
+        restaurant: req.restaurant._id,
+        user: req.user._id}
+    )
+    console.log(req.user._id)
+    res.status(200).json(updatedReview)
+}} catch {
+    res.status(403).json({message: "Review cannot be updated."})
+}
+    }
+
 async function deleteReview(req,res)
 { try {
     const foundReview = await Review.find(req.params._id)
@@ -47,10 +64,11 @@ async function deleteReview(req,res)
     res.sendStatus(204)}}
     catch (err){
     console.log(err)
-    res.status(403).json({message: "You cannot perform this action."})}}
+    res.status(403).json({message: "Review cannot be deleted."})}}
 
 module.exports = {
     getAllReviews,
     getOneReview,
     createReview,
+    editReview,
     deleteReview}
