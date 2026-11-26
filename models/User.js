@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
-      lowercase:true
+      lowercase: true
     },
     hashedPassword: {
       type: String,
@@ -16,7 +16,8 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: true,
-      enum: ['admin' , 'restaurant', 'driver', 'user']
+      enum: ['admin', 'restaurant', 'driver', 'user'],
+      default: 'user'
     },
     isDeleted: {
       type: Boolean,
