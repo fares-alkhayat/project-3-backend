@@ -24,7 +24,11 @@ const resturantSchema = new mongoose.Schema(
         owner: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
-        }
+        },
+        isApproved: {
+            type: Boolean,
+            default: false
+    }
     },
     { timestamps: true },
 );
