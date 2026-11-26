@@ -4,28 +4,33 @@ const jwt = require("jsonwebtoken");
 
 async function signUp(req, res) {
   try {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
 
     // Validation
-    if (!username || !password)
+    if (!username || !password || !role)
       return res
         .status(400)
-        .json({ message: "Username and password are required." });
-    if (password.length < 6)
-      return res
-        .status(400)
-        .json({ message: "Password must be more than 6 characters" });
+        .json({ message: "Username and password and role are required." });
 
+    console.log(role !== 'user')
+    if (password.length < 6) return res
+      .status(400)
+      .json({ message: "Password must be more than 6 characters" });
+
+    if (role !== 'user' && role !== 'restaurant' && role !== 'driver') {
+      return res.status(401).json({ message: 'Role Invalid' })
+    }
     const user = await User.create({
       username,
       hashedPassword: await bcrypt.hash(password, 12),
+      role
     });
 
     const { _id, createdAt, updatedAt } = user;
 
     res
       .status(201)
-      .json({ username: user.username, _id, createdAt, updatedAt });
+      .json({ username: user.username, _id, createdAt, updatedAt, role: user.role });
   } catch (err) {
     console.log(err);
     if (err.name === "ValidationError") {

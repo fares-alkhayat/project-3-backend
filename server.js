@@ -9,7 +9,7 @@ const connectToDB = require('./config/db.js')
 
 // Routes Import
 const authRoutes = require('./routes/auth.routes')
-const restaurantRoutes = require('./routes/restaurant.routes.js')
+const resturauntRoutes = require('./routes/restaurant.routes.js')
 
 // Middleware
 app.use(
@@ -23,8 +23,8 @@ app.use(morgan('dev'))
 
 
 // Routes
-app.use('/auth',authRoutes)
-app.use('/restaurants', restaurantRoutes)
+app.use('/auth', authRoutes)
+app.use('/resturaunts', resturauntRoutes)
 
 
 
