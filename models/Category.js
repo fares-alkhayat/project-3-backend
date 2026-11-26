@@ -5,9 +5,9 @@ const CategorySchema = new mongoose.Schema(
     category: {
       type: String,
     },
-    resturant: {
+    restaurant: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Resturant",
+      ref: "Restaurant",
     },
   },
   { timestamps: true },
