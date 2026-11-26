@@ -22,10 +22,6 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
       default: false
-    },
-    restaurantApproved: {
-      type: Boolean,
-      default: false
     }
   },
   { timestamps: true },
