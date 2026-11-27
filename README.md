@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the Node.js, Express and MongoDB backend for **Zaid-at**.
+This repository contains the Node.js, Express and MongoDB backend for **QuickBite**, a model food delivery service.
 
 ## Related Links
 
@@ -199,7 +199,7 @@ Tests should use a dedicated test database or an in-memory database.
 
 | Name         | GitHub           | Responsibilities       |
 | ------------ | ---------------- | ---------------------- |
-| Fares Alkhayat | fares-alkhayat | ...                    |
+| Fares Alkhayat | fares-alkhayat | User and review models, routing, administration of the GitHub repository |
 | Husain Mandeel | husain-ahmed-123 | ...                  |
 | Redha Mohammed | redha-moh3     | ...                    |
 
