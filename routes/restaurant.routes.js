@@ -18,4 +18,13 @@ router.delete('/:restaurantID/review/:reviewID', verifyToken, reviewController.d
 
 router.post('/', verifyToken, restaurantController.createRestaurant)
 
+router.put('/:restaurantID', verifyToken, restaurantController.editResturant)
+
+router.get('/', restaurantController.getAllRestaurants)
+
+router.get('/:restaurantID', verifyToken, restaurantController.getOneRestaurant)
+
+router.delete('/:restaurantID', verifyToken, restaurantController.deleteRestaurant)
+
+
 module.exports = router;
