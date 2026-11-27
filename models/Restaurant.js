@@ -15,28 +15,7 @@ const restaurantSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
-            validate: {
-                validator: (value) => {
-                    try {
-                        const url = new URL(value);
-                        if (url.protocol !== 'http:' && url.protocol !== 'https:')
-                            return false;
 
-                        const hostname = url.hostname;
-                        if (hostname.startsWith('[') && hostname.endsWith(']'))
-                            return true;
-
-                        return Boolean(hostname)
-                            && !hostname.includes('..')
-                            && hostname.split('.').every((label) =>
-                                /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label)
-                            );
-                    } catch {
-                        return false;
-                    }
-                },
-                message: 'Please enter a valid URL'
-            }
         },
         location: {
             type: String,
@@ -45,7 +24,8 @@ const restaurantSchema = new mongoose.Schema(
         },
         owner: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'User',
+            unique: true
         },
         isApproved: {
             type: Boolean,
