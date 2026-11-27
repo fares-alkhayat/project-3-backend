@@ -25,15 +25,17 @@ async function getOneReview(req,res)
 
 async function createReview(req,res)
 { try {
+
     const createdReview = await Review.create({
         text: req.body.text,
-        rating: req.body,rating,
-        restaurant: req.restaurant._id,
+        rating: req.body.rating,
+        restaurant: req.params.restaurantID,
         user: req.user._id}
     )
     console.log(req.user._id)
-    res.status(204).json(createdReview)
-} catch {
+    res.status(200).json(createdReview)
+} catch(err) {
+    console.log(err)
     res.status(400).json({message: "Review cannot be created."})
 }
 }
@@ -42,7 +44,7 @@ async function editReview(req,res){
     try {
     const foundReview = await Review.find(req.params._id)
     if(foundReview.user._id == req.user._id){
-    const updated = await Review.findByIdAndUpdate({
+    const updatedReview = await Review.findByIdAndUpdate({
         text: req.body.text,
         rating: req.body,rating,
         restaurant: req.restaurant._id,
