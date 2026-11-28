@@ -42,7 +42,9 @@ async function createReview(req,res)
 }
 }
 
-async function editReview(req,res){
+// TODO: PUT and DELETE methods coming soon
+
+/* async function editReview(req,res){
     try {
         const foundReview = await Review.findById(req.params.reviewID)
         console.log(foundReview.user)
@@ -61,7 +63,7 @@ async function editReview(req,res){
         res.status(200).json(updatedReview)
         } catch (err) {
         console.log(err)
-}}
+}} 
 
 async function deleteReview(req,res)
 { try {
@@ -73,11 +75,9 @@ async function deleteReview(req,res)
 
     catch (err){
     console.log(err)
-    res.status(403).json({message: "Review cannot be deleted."})}}
+    res.status(403).json({message: "Review cannot be deleted."})}} */
 
 module.exports = {
     getAllReviews,
     getOneReview,
-    createReview,
-    editReview,
-    deleteReview}
+    createReview}
